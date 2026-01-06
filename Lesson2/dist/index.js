@@ -1,0 +1,16 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const t1a = true;
+const t1b = false;
+const t2x = 123;
+const t3a = 10;
+const t3b = "ok";
+const t4u = { id: 1, name: "Ivan" };
+const p5a = {};
+const p5b = { name: "Ivan" };
+const p5c = { email: "a@b.com" };
+const p6a = {};
+const p6b = { name: "Ivan" };
+const p6c = { email: "a@b.com" };
+const k7a = "GET /users/:id";
+const k7b = "POST /users";
