@@ -1,0 +1,27 @@
+{
+  "name": "ExamSession",
+  "initial": "NotStarted",
+  "unknownPolicy": "throw",
+  "states": [
+    "NotStarted",
+    "InProgress",
+    "Submitted",
+    "Graded",
+    "Cancelled",
+    "Limbo"
+  ],
+  "events": [
+    "Start",
+    "Submit",
+    "Grade",
+    "Cancel"
+  ],
+  "transitions": [
+    { "from": "NotStarted",  "event": "Start",   "to": "InProgress" },
+    { "from": "InProgress",  "event": "Submit",  "to": "Submitted" },
+    { "from": "InProgress",  "event": "Submit",  "to": "Cancelled" },
+    { "from": "Submitted",   "event": "Grade",   "to": "Graded" },
+    { "from": "InProgress",  "event": "Cancel",  "to": "Cancelled" },
+    { "from": "NotStarted",  "event": "Pause",   "to": "InProgress" }
+  ]
+}

@@ -1,0 +1,3 @@
+{
+  "events": ["Move", "Arrive", "Pick", "Dock", "Charge", "Reset"]
+}

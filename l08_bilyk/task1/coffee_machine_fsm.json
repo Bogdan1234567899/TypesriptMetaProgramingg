@@ -1,0 +1,33 @@
+{
+  "name": "CoffeeMachine",
+  "initial": "Idle",
+  "unknownPolicy": "throw",
+  "states": [
+    "Idle",
+    "CoinInserted",
+    "DrinkSelected",
+    "Brewing",
+    "Ready",
+    "OutOfService"
+  ],
+  "events": [
+    "InsertCoin",
+    "SelectDrink",
+    "StartBrew",
+    "Serve",
+    "Fault",
+    "Reset"
+  ],
+  "transitions": [
+    { "from": "Idle",           "event": "InsertCoin", "to": "CoinInserted" },
+    { "from": "CoinInserted",   "event": "SelectDrink", "to": "DrinkSelected" },
+    { "from": "DrinkSelected",  "event": "StartBrew",  "to": "Brewing" },
+    { "from": "Brewing",        "event": "Serve",      "to": "Ready" },
+    { "from": "Ready",          "event": "Reset",      "to": "Idle" },
+    { "from": "Idle",           "event": "Fault",      "to": "OutOfService" },
+    { "from": "CoinInserted",   "event": "Fault",      "to": "OutOfService" },
+    { "from": "DrinkSelected",  "event": "Fault",      "to": "OutOfService" },
+    { "from": "Brewing",        "event": "Fault",      "to": "OutOfService" },
+    { "from": "OutOfService",   "event": "Reset",      "to": "Idle" }
+  ]
+}

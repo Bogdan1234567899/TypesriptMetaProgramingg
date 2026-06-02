@@ -1,0 +1,21 @@
+=== Scenario 1: Normal flow to Published ===
+Draft + Submit -> Submitted
+Submitted + StartReview -> UnderReview
+UnderReview + Approve -> Approved
+Approved + Publish -> Published
+Final state: Published
+
+=== Scenario 2: Reject -> Revise -> Review again ===
+Draft + Submit -> Submitted
+Submitted + StartReview -> UnderReview
+UnderReview + Reject -> Rejected
+Rejected + Revise -> Draft
+Draft + Submit -> Submitted
+Submitted + StartReview -> UnderReview
+UnderReview + Approve -> Approved
+Approved + Publish -> Published
+Final state: Published
+
+=== Scenario 3: Unknown event (fail-fast) ===
+[FAIL-FAST] Illegal transition: Draft + Publish
+Final state: Draft

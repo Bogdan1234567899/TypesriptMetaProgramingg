@@ -1,0 +1,35 @@
+=== warehouse_robot_fsm.json ===
+Validation OK
+Initial: Idle
+  Idle + Move -> Moving
+  Moving + Arrive -> Picking
+  Picking + Pick -> Returning
+  Returning + Dock -> Idle
+  Idle + Charge -> Charging
+  Charging + Reset -> Idle
+Final: Idle
+
+=== support_ticket_fsm.json ===
+Validation OK
+Initial: Open
+  Open + Assign -> Assigned
+  Assigned + Start -> InProgress
+  InProgress + Resolve -> Resolved
+  Resolved + Reopen -> Reopened
+  Reopened + Assign -> Assigned
+  Assigned + Start -> InProgress
+  InProgress + Resolve -> Resolved
+  Resolved + Close -> Closed
+Final: Closed
+
+=== payment_retry_fsm.json ===
+Validation OK
+Initial: Initial
+  Initial + Try -> Trying
+  Trying + Fail -> Failed
+  Failed + Retry -> Trying
+  Trying + Fail -> Failed
+  Failed + Retry -> Trying
+  Trying + Success -> Succeeded
+Final: Succeeded
+

@@ -1,0 +1,3 @@
+{
+  "events": ["Try", "Fail", "Retry", "Fail", "Retry", "Success"]
+}

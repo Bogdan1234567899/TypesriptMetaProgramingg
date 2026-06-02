@@ -1,0 +1,30 @@
+{
+  "name": "AccessControl",
+  "initial": "Locked",
+  "unknownPolicy": "throw",
+  "states": [
+    "Locked",
+    "CardChecked",
+    "AccessGranted",
+    "AccessDenied",
+    "Alarm"
+  ],
+  "events": [
+    "ScanCard",
+    "Validate",
+    "Grant",
+    "Deny",
+    "Tamper",
+    "Reset"
+  ],
+  "transitions": [
+    { "from": "Locked",        "event": "ScanCard", "to": "CardChecked" },
+    { "from": "CardChecked",   "event": "Grant",    "to": "AccessGranted" },
+    { "from": "CardChecked",   "event": "Deny",     "to": "AccessDenied" },
+    { "from": "AccessGranted", "event": "Reset",    "to": "Locked" },
+    { "from": "AccessDenied",  "event": "Reset",    "to": "Locked" },
+    { "from": "Locked",        "event": "Tamper",   "to": "Alarm" },
+    { "from": "CardChecked",   "event": "Tamper",   "to": "Alarm" },
+    { "from": "Alarm",         "event": "Reset",    "to": "Locked" }
+  ]
+}

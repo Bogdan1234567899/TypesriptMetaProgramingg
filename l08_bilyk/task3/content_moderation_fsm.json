@@ -1,0 +1,29 @@
+{
+  "name": "ContentModeration",
+  "initial": "Draft",
+  "unknownPolicy": "throw",
+  "states": [
+    "Draft",
+    "Submitted",
+    "UnderReview",
+    "Approved",
+    "Rejected",
+    "Published"
+  ],
+  "events": [
+    "Submit",
+    "StartReview",
+    "Approve",
+    "Reject",
+    "Publish",
+    "Revise"
+  ],
+  "transitions": [
+    { "from": "Draft",       "event": "Submit",      "to": "Submitted" },
+    { "from": "Submitted",   "event": "StartReview", "to": "UnderReview" },
+    { "from": "UnderReview", "event": "Approve",     "to": "Approved" },
+    { "from": "UnderReview", "event": "Reject",      "to": "Rejected" },
+    { "from": "Approved",    "event": "Publish",     "to": "Published" },
+    { "from": "Rejected",    "event": "Revise",      "to": "Draft" }
+  ]
+}

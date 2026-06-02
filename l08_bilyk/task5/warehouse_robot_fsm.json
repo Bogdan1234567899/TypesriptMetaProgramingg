@@ -1,0 +1,35 @@
+{
+  "name": "WarehouseRobot",
+  "initial": "Idle",
+  "unknownPolicy": "throw",
+  "states": [
+    "Idle",
+    "Moving",
+    "Picking",
+    "Returning",
+    "Charging",
+    "Error"
+  ],
+  "events": [
+    "Move",
+    "Arrive",
+    "Pick",
+    "Dock",
+    "Charge",
+    "Fault",
+    "Reset"
+  ],
+  "transitions": [
+    { "from": "Idle",      "event": "Move",   "to": "Moving" },
+    { "from": "Moving",    "event": "Arrive", "to": "Picking" },
+    { "from": "Picking",   "event": "Pick",   "to": "Returning" },
+    { "from": "Returning", "event": "Dock",   "to": "Idle" },
+    { "from": "Idle",      "event": "Charge", "to": "Charging" },
+    { "from": "Charging",  "event": "Reset",  "to": "Idle" },
+    { "from": "Idle",      "event": "Fault",  "to": "Error" },
+    { "from": "Moving",    "event": "Fault",  "to": "Error" },
+    { "from": "Picking",   "event": "Fault",  "to": "Error" },
+    { "from": "Returning", "event": "Fault",  "to": "Error" },
+    { "from": "Error",     "event": "Reset",  "to": "Idle" }
+  ]
+}

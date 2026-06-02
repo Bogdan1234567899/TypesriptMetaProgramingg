@@ -1,0 +1,13 @@
+Loaded model: CoffeeMachine
+Initial state: Idle
+Unknown policy: throw
+
+=== Scenario start (7 events) ===
+Idle + InsertCoin -> CoinInserted
+CoinInserted + SelectDrink -> DrinkSelected
+DrinkSelected + StartBrew -> Brewing
+Brewing + Serve -> Ready
+Ready + Reset -> Idle
+Idle + Fault -> OutOfService
+OutOfService + Reset -> Idle
+=== End: final state = Idle ===

@@ -1,0 +1,28 @@
+{
+  "name": "SupportTicket",
+  "initial": "Open",
+  "unknownPolicy": "throw",
+  "states": [
+    "Open",
+    "Assigned",
+    "InProgress",
+    "Resolved",
+    "Closed",
+    "Reopened"
+  ],
+  "events": [
+    "Assign",
+    "Start",
+    "Resolve",
+    "Close",
+    "Reopen"
+  ],
+  "transitions": [
+    { "from": "Open",       "event": "Assign",  "to": "Assigned" },
+    { "from": "Assigned",   "event": "Start",   "to": "InProgress" },
+    { "from": "InProgress", "event": "Resolve", "to": "Resolved" },
+    { "from": "Resolved",   "event": "Close",   "to": "Closed" },
+    { "from": "Resolved",   "event": "Reopen",  "to": "Reopened" },
+    { "from": "Reopened",   "event": "Assign",  "to": "Assigned" }
+  ]
+}
