@@ -1,0 +1,32 @@
+{
+  "name": "WarehouseFlow",
+  "initial": "Idle",
+  "unknownPolicy": "throw",
+  "states": [
+    "Idle",
+    "Receiving",
+    "Storing",
+    "Picking",
+    "Shipping",
+    "Error"
+  ],
+  "events": [
+    "Receive",
+    "Store",
+    "Pick",
+    "Ship",
+    "Done",
+    "Fault",
+    "Reset"
+  ],
+  "transitions": [
+    { "from": "Idle",      "event": "Receive", "to": "Receiving" },
+    { "from": "Receiving", "event": "Store",   "to": "Storing" },
+    { "from": "Storing",   "event": "Pick",    "to": "Picking" },
+    { "from": "Picking",   "event": "Ship",    "to": "Shipping" },
+    { "from": "Shipping",  "event": "Done",    "to": "Idle" },
+    { "from": "Idle",      "event": "Fault",   "to": "Error" },
+    { "from": "Storing",   "event": "Fault",   "to": "Error" },
+    { "from": "Error",     "event": "Reset",   "to": "Idle" }
+  ]
+}

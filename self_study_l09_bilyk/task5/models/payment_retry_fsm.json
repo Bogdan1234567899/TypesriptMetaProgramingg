@@ -1,0 +1,28 @@
+{
+  "name": "PaymentRetry",
+  "initial": "Initial",
+  "unknownPolicy": "throw",
+  "states": [
+    "Initial",
+    "Trying",
+    "Succeeded",
+    "Failed",
+    "Abandoned"
+  ],
+  "events": [
+    "Try",
+    "Success",
+    "Fail",
+    "Retry",
+    "GiveUp",
+    "Cancel"
+  ],
+  "transitions": [
+    { "from": "Initial", "event": "Try",     "to": "Trying" },
+    { "from": "Trying",  "event": "Success", "to": "Succeeded" },
+    { "from": "Trying",  "event": "Fail",    "to": "Failed" },
+    { "from": "Failed",  "event": "Retry",   "to": "Trying" },
+    { "from": "Failed",  "event": "GiveUp",  "to": "Abandoned" },
+    { "from": "Trying",  "event": "Cancel",  "to": "Abandoned" }
+  ]
+}
